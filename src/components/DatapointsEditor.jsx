@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function DatapointsEditor({ datapoints, setDatapoints }) {
-	let [latest, setLatest] = useState(0);
+	let [latest, setLatest] = useState(1);
 
 	return (
 		<div className="datapoints-editor">
@@ -20,7 +20,7 @@ function DatapointsEditor({ datapoints, setDatapoints }) {
 				onClick={() => {
 					setDatapoints([
 						...datapoints,
-						{ x: latest, y: 2 * latest, id: latest },
+						{ x: latest, y: 1 + latest, id: latest },
 					]);
 					setLatest(latest + 1);
 				}}
