@@ -20,7 +20,11 @@ function DatapointsEditor({ datapoints, setDatapoints }) {
 				onClick={() => {
 					setDatapoints([
 						...datapoints,
-						{ x: latest, y: 1 + latest, id: latest },
+						{
+							x: Math.random() + latest,
+							y: Math.random() + latest,
+							id: latest,
+						},
 					]);
 					setLatest(latest + 1);
 				}}

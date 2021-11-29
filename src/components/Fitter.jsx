@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import regression from "regression";
+import functionPlot from "function-plot";
+
+let width = 800;
+let height = 500;
 
 function Fitter({ datapoints }) {
 	const [result, setResult] = useState(null);
@@ -9,19 +13,34 @@ function Fitter({ datapoints }) {
 			<button
 				onClick={() => {
 					const points = datapoints.map((dp) => [dp.x, dp.y]);
-					setResult(regression.exponential(points));
+					let calculatedResult = regression.exponential(points, {
+						precision: 5,
+					});
+					setResult(calculatedResult);
+
+					functionPlot({
+						target: "#plot",
+						width: 580,
+						height: 400,
+						title: calculatedResult.string,
+						data: [
+							{
+								fn: `${calculatedResult.equation[0]} * (2.71 ^ (${calculatedResult.equation[1]} * x))`,
+								graphType: "polyline",
+							},
+							{
+								graphType: "scatter",
+								fnType: "points",
+								points: points,
+							},
+						],
+					});
 				}}
 			>
 				exponential curve
 			</button>
 
-			{result && (
-				<div>
-					<h3>
-						y = {result.equation[0]} e<sup> {result.equation[1]} x</sup>
-					</h3>
-				</div>
-			)}
+			<div id="plot"></div>
 		</div>
 	);
 }
