@@ -25,7 +25,7 @@ function Fitter({ datapoints }) {
 						title: calculatedResult.string,
 						data: [
 							{
-								fn: `${calculatedResult.equation[0]} * (2.71 ^ (${calculatedResult.equation[1]} * x))`,
+								fn: `${calculatedResult.equation[0]} * (2.7182818284590452353602874713526624977572470 ^ (${calculatedResult.equation[1]} * x))`,
 								graphType: "polyline",
 							},
 							{
