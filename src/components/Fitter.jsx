@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import regression from "regression";
+import regression from "../regression";
 import functionPlot from "function-plot";
 
 let width = 800;
