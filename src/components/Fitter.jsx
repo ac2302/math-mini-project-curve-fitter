@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import regression from "../regression";
 import functionPlot from "function-plot";
 
-let width = 800;
-let height = 500;
-
 function Fitter({ datapoints }) {
 	const [result, setResult] = useState(null);
 
 	return (
 		<div>
 			<button
+				className="fit-button"
 				onClick={() => {
 					const points = datapoints.map((dp) => [dp.x, dp.y]);
 					let calculatedResult = regression.exponential(points, {
@@ -20,8 +18,8 @@ function Fitter({ datapoints }) {
 
 					functionPlot({
 						target: "#plot",
-						width: 580,
-						height: 400,
+						width: 775,
+						height: 600,
 						title: calculatedResult.string,
 						data: [
 							{

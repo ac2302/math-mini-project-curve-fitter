@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MdDelete } from "react-icons/md";
 
 function DatapointsEditor({ datapoints, setDatapoints }) {
 	let [latest, setLatest] = useState(1);
@@ -17,6 +18,7 @@ function DatapointsEditor({ datapoints, setDatapoints }) {
 				</div>
 			))}
 			<button
+				className="new-item-button"
 				onClick={() => {
 					setDatapoints([
 						...datapoints,
@@ -67,13 +69,14 @@ function DatapointEditor({ datapoints, setDatapoints, id }) {
 				}}
 			/>
 			<button
+				className="delete-item-button"
 				onClick={() => {
 					setDatapoints((prevState) => {
 						return prevState.filter((entry) => entry.id !== id);
 					});
 				}}
 			>
-				remove
+				<MdDelete />
 			</button>
 		</div>
 	);

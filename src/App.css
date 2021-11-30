@@ -1,0 +1,46 @@
+.main-container {
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.datapoints-editor {
+	border: 1px solid black;
+	width: fit-content;
+	padding: 10px;
+	font-size: 23px;
+}
+.datapoints-editor input {
+	font-size: 23px;
+	margin: 3px;
+	margin-right: 5px;
+}
+.datapoints-editor .new-item-button {
+	background-color: darkgreen;
+	font-size: 23px;
+	color: white;
+	padding: 3px;
+	width: 100%;
+	border-radius: 10px;
+}
+.datapoints-editor .delete-item-button {
+	background-color: darkred;
+	color: white;
+	font-size: 23px;
+	border-radius: 20%;
+}
+
+.fit-button {
+	background-color: orangered;
+	color: white;
+	font-size: 20px;
+	padding: 3px;
+	border-radius: 10px;
+	margin: 3px;
+}
+
+h1 {
+	margin-bottom: 5px;
+}

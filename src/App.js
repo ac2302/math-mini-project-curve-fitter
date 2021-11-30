@@ -7,7 +7,8 @@ function App() {
 	const [datapoints, setDatapoints] = useState([]);
 
 	return (
-		<div>
+		<div className="main-container">
+			<h1>Curve Fitter</h1>
 			<DatapointsEditor datapoints={datapoints} setDatapoints={setDatapoints} />
 			<Fitter datapoints={datapoints} />
 		</div>
