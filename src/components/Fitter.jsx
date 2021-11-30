@@ -11,6 +11,68 @@ function Fitter({ datapoints }) {
 				className="fit-button"
 				onClick={() => {
 					const points = datapoints.map((dp) => [dp.x, dp.y]);
+					let calculatedResult = regression.linear(points, {
+						precision: 5,
+					});
+					setResult(calculatedResult);
+
+					functionPlot({
+						target: "#plot",
+						width: 775,
+						height: 600,
+						title: calculatedResult.string,
+						data: [
+							{
+								fn: calculatedResult.string.substr(4),
+								graphType: "polyline",
+							},
+							{
+								graphType: "scatter",
+								fnType: "points",
+								points: points,
+							},
+						],
+					});
+				}}
+			>
+				linear
+			</button>
+
+			<button
+				className="fit-button"
+				onClick={() => {
+					const points = datapoints.map((dp) => [dp.x, dp.y]);
+					let calculatedResult = regression.power(points, {
+						precision: 5,
+					});
+					setResult(calculatedResult);
+
+					functionPlot({
+						target: "#plot",
+						width: 775,
+						height: 600,
+						title: calculatedResult.string,
+						data: [
+							{
+								fn: calculatedResult.string.substr(4),
+								graphType: "polyline",
+							},
+							{
+								graphType: "scatter",
+								fnType: "points",
+								points: points,
+							},
+						],
+					});
+				}}
+			>
+				power
+			</button>
+
+			<button
+				className="fit-button"
+				onClick={() => {
+					const points = datapoints.map((dp) => [dp.x, dp.y]);
 					let calculatedResult = regression.exponential(points, {
 						precision: 5,
 					});
@@ -35,7 +97,7 @@ function Fitter({ datapoints }) {
 					});
 				}}
 			>
-				exponential curve
+				exponential
 			</button>
 
 			<div id="plot"></div>
